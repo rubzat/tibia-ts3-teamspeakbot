@@ -135,6 +135,7 @@ const mapCharactersToNames = ({ type, characterName }) => ({ type, characterName
 
 export const startTasks = (teamspeak) => {
   const listTask = cron.schedule('0-59/5 * * * * *', async () => {
+    console.log('Init')
     const enemyCharacters = await Characters.find({ type: 'enemy' });
     const friendCharacters = await Characters.find({ type: 'friend' });
     const neutralCharacters = await Characters.find({ type: 'neutral' });
@@ -152,7 +153,7 @@ export const startTasks = (teamspeak) => {
     ].filter(({ characterName }) => characterName);
 
     const allCharactersInformation = await getInformationFromCharacters(allCharacters);
-
+    console.log('allCharactersInformation', allCharactersInformation)
     const deathListByCharacters = [];
     const playersOnline = [];
 
