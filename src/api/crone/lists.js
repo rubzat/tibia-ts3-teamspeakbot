@@ -53,9 +53,7 @@ const getInformationFromCharacters = async (characterNames = []) => (
       }) => (
         new Promise(async (resolve) => {
           try {
-            console.log('characterName',characterName)
             const information = await tibiaAPI.getCharacterInformation(characterName);
-            console.log('information',information)
             information.kills.forEach((death) => {
               death.type = type;
             });
@@ -136,7 +134,7 @@ const getNotPokedKills = async (kills = []) => (
 const mapCharactersToNames = ({ type, characterName }) => ({ type, characterName });
 
 export const startTasks = (teamspeak) => {
-  const listTask = cron.schedule('0-59/25 * * * * *', async () => {
+  const listTask = cron.schedule('*/1 * * * * *', async () => {
     console.log('StartJobs')
     const enemyCharacters = await Characters.find({ type: 'enemy' });
     const friendCharacters = await Characters.find({ type: 'friend' });
@@ -157,7 +155,6 @@ export const startTasks = (teamspeak) => {
     const allCharactersInformation = await getInformationFromCharacters(allCharacters);
     const deathListByCharacters = [];
     const playersOnline = [];
-    console.log('allCharactersInformation',allCharactersInformation)
     if (allCharactersInformation && allCharactersInformation.length > 0) {
       allCharactersInformation.forEach((data) => {
         if (data && data.kills) {
@@ -165,7 +162,6 @@ export const startTasks = (teamspeak) => {
         }
   
         if (data && data.info) {
-          console.log('Name',data.info.name, data.info.status)
           if (data.info.status === 'online') {
             playersOnline.push(data.info);
           }

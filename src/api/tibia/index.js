@@ -17,14 +17,11 @@ export default class TibiaAPI {
         }
       }
     } = await axios.get(`${TIBIA_DATA_API_URL}characters/${encodeURIComponent(characterName)}.json`);
-    console.log('TIBIA_DATA_API_URL')
     const data = await axios.get(`${TIBIA_DATA_API_URL}world/lobera.json`);
     const onlines = data.data.world.players_online;
-    console.log('isOnline', onlines)
     const isOnline = onlines.find((online) => {
       return online.name == characterName;
     })
-    console.log('isOnline', isOnline)
     return {
       info: {
         ...characterData,
@@ -33,15 +30,6 @@ export default class TibiaAPI {
       kills,
       characters,
     };
-  }
-
-  async getWorld(characterName) {
-    let onlines = await axios.get(`${TIBIA_DATA_API_URL}world/lobera.json`);
-    const isOnline = onlines.find((online) => {
-      return online.name == characterName;
-    })
-    console.log('getWork', isOnline)
-    return isOnline ? 'online' : 'offline';
   }
 
   async getGuildInformation(guildUrl) {
