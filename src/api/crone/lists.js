@@ -53,7 +53,9 @@ const getInformationFromCharacters = async (characterNames = []) => (
       }) => (
         new Promise(async (resolve) => {
           try {
+            console.log('characterName',characterName)
             const information = await tibiaAPI.getCharacterInformation(characterName);
+            console.log('information',information)
             information.kills.forEach((death) => {
               death.type = type;
             });
