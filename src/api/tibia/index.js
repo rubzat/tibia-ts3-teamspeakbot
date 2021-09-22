@@ -33,7 +33,7 @@ export default class TibiaAPI {
    const isOnline = onlines.find((online)=>{
     return online.name == characterName;
    })
-
+   console.log('getWork',isOnline)
     return isOnline? 'online': 'offline'; 
   }
 
