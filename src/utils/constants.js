@@ -9,11 +9,11 @@ export const MODERATOR_GROUP_NAME = 'TBot Moderator';
 export const BOT_NAME = 'TFreeBot';
 
 export const VOCATIONS_ICONS = {
-  'http://forums.xenobot.net/images/icons/icon4.png': 'None',
-  'http://i.imgur.com/qAXsL2J.png': 'Druid',
-  'http://i.imgur.com/rYWmtmw.png': 'Paladin',
-  'http://i.imgur.com/jMWSztQ.png': 'Sorcerer',
-  'http://i.imgur.com/sKqEwqU.png': 'Knight',
+  'https://forums.xenobot.net/images/icons/icon4.png': 'None',
+  'https://i.imgur.com/qAXsL2J.png': 'Druid',
+  'https://i.imgur.com/rYWmtmw.png': 'Paladin',
+  'https://i.imgur.com/jMWSztQ.png': 'Sorcerer',
+  'https://i.imgur.com/sKqEwqU.png': 'Knight',
 };
 
 export const INITIAL_CHANNELS = [{
