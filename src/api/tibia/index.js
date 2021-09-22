@@ -17,7 +17,8 @@ export default class TibiaAPI {
         }
       }
     } = await axios.get(`${TIBIA_DATA_API_URL}characters/${encodeURIComponent(characterName)}.json`);
-    const status = await getWorld(characterName);
+    const status = await this.getWorld(characterName);
+    console.log('status GetCha',status)
     return {
       info: { 
         ...characterData,

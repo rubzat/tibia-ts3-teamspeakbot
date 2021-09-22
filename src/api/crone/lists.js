@@ -163,6 +163,7 @@ export const startTasks = (teamspeak) => {
         }
   
         if (data && data.info) {
+          console.log('Name',data.info.name, data.info.status)
           if (data.info.status === 'online') {
             playersOnline.push(data.info);
           }
