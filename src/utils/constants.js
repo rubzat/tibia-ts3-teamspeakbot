@@ -2,10 +2,10 @@ import { promoteUser } from '../scripts/server-groups';
 import { massKick, massMove, sendMassPoke } from '../scripts/client';
 import { insertCharacter, removeCharacter, addCharactersByGuildName } from '../api/models/characters';
 
-export const ADMIN_GROUP_NAME = 'TS1Bot Admin';
-export const MODERATOR_GROUP_NAME = 'TS1Bot Moderator';
+export const ADMIN_GROUP_NAME = 'TBot Admin';
+export const MODERATOR_GROUP_NAME = 'TBot Moderator';
 
-export const BOT_NAME = 'TS1FreeBot';
+export const BOT_NAME = 'TFreeBot';
 
 export const VOCATIONS_ICONS = {
   'http://forums.xenobot.net/images/icons/icon4.png': 'None',

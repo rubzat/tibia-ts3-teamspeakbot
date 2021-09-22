@@ -21,7 +21,7 @@ export const createChannels = async (spinner) => {
     
         await Promise.all(INITIAL_CHANNELS.map((ch) => (
           new Promise(async (resolve) => {
-            spinner.succeed(`!CHANELLS, ${ch}`);
+            spinner.succeed(`!CHANELLS, ${ch.type}`);
             const channel = await createChannel(teamspeak, ch);
             resolve(channel);
           })
