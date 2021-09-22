@@ -3,6 +3,7 @@ import { massKick, massMove, sendMassPoke } from '../scripts/client';
 import { insertCharacter, removeCharacter, addCharactersByGuildName } from '../api/models/characters';
 
 export const ADMIN_GROUP_NAME = 'TBot Admin';
+export const SV_GROUP_NAME = 'Server Admin';
 export const MODERATOR_GROUP_NAME = 'TBot Moderator';
 
 export const BOT_NAME = 'TFreeBot';
@@ -53,7 +54,7 @@ export const VOCATIONS = [
 
 export const COMMANDS_MAP = {
   '!mk': {
-    groups: [MODERATOR_GROUP_NAME, ADMIN_GROUP_NAME],
+    groups: [MODERATOR_GROUP_NAME, ADMIN_GROUP_NAME, SV_GROUP_NAME],
     exec: async (teamspeak, msgAsList) => {
       try {
         msgAsList.shift();
@@ -69,7 +70,7 @@ export const COMMANDS_MAP = {
     howToUse: '!mk ${message}, kick clients with optional message',
   },
   '!mp': {
-    groups: [MODERATOR_GROUP_NAME, ADMIN_GROUP_NAME],
+    groups: [MODERATOR_GROUP_NAME, ADMIN_GROUP_NAME, SV_GROUP_NAME],
     exec: async (teamspeak, msgAsList) => {
       try {
         msgAsList.shift();
@@ -85,7 +86,7 @@ export const COMMANDS_MAP = {
     howToUse: '!mp ${message}, to sent a poke to all connected clients',
   },
   '!mmove': {
-    groups: [MODERATOR_GROUP_NAME, ADMIN_GROUP_NAME],
+    groups: [MODERATOR_GROUP_NAME, ADMIN_GROUP_NAME, SV_GROUP_NAME],
     exec: async (teamspeak, msgAsList, cid) => {
       try {
         await massMove(teamspeak, cid, msgAsList[1]);
@@ -99,7 +100,7 @@ export const COMMANDS_MAP = {
     howToUse: '!mmove ${cpw}, just move to the channel you want to move all, and execute note: pass cpw when try to move to a private channel',
   },
   '!addEnemy': {
-    groups: [ADMIN_GROUP_NAME],
+    groups: [ADMIN_GROUP_NAME, SV_GROUP_NAME],
     exec: async (teamspeak, msgAsList) => {
       try {
         msgAsList.shift();
@@ -117,7 +118,7 @@ export const COMMANDS_MAP = {
     howToUse: '!addEnemy ${enemyName}',
   },
   '!addEnemysByGuild': {
-    groups: [ADMIN_GROUP_NAME],
+    groups: [ADMIN_GROUP_NAME, SV_GROUP_NAME],
     exec: async (_, msgAsList) => {
       try {
         msgAsList.shift();
@@ -133,7 +134,7 @@ export const COMMANDS_MAP = {
     howToUse: '!addEnemysByGuild ${guildName}',
   },
   '!removeEnemy': {
-    groups: [ADMIN_GROUP_NAME],
+    groups: [ADMIN_GROUP_NAME, SV_GROUP_NAME],
     exec: async (teamspeak, msgAsList) => {
       try {
         msgAsList.shift();
@@ -151,7 +152,7 @@ export const COMMANDS_MAP = {
     howToUse: '!removeEnemy ${enemyName}',
   },
   '!addFriend': {
-    groups: [ADMIN_GROUP_NAME],
+    groups: [ADMIN_GROUP_NAME, SV_GROUP_NAME],
     exec: async (teamspeak, msgAsList) => {
       try {
         msgAsList.shift();
@@ -169,7 +170,7 @@ export const COMMANDS_MAP = {
     howToUse: '!addFriend ${enemyName}',
   },
   '!addFriendsByGuild': {
-    groups: [ADMIN_GROUP_NAME],
+    groups: [ADMIN_GROUP_NAME, SV_GROUP_NAME],
     exec: async (teamspeak, msgAsList) => {
       try {
         msgAsList.shift();
@@ -185,7 +186,7 @@ export const COMMANDS_MAP = {
     howToUse: '!addFriendsByGuild ${guildName}',
   },
   '!removeFriend': {
-    groups: [ADMIN_GROUP_NAME],
+    groups: [ADMIN_GROUP_NAME, SV_GROUP_NAME],
     exec: async (teamspeak, msgAsList) => {
       try {
         msgAsList.shift();
@@ -203,7 +204,7 @@ export const COMMANDS_MAP = {
     howToUse: '!removeFriend ${enemyName}',
   },
   '!addNeutral': {
-    groups: [ADMIN_GROUP_NAME],
+    groups: [ADMIN_GROUP_NAME, SV_GROUP_NAME],
     exec: async (teamspeak, msgAsList) => {
       try {
         msgAsList.shift();
@@ -221,7 +222,7 @@ export const COMMANDS_MAP = {
     howToUse: '!addNeutral ${enemyName}',
   },
   '!removeNeutral': {
-    groups: [ADMIN_GROUP_NAME],
+    groups: [ADMIN_GROUP_NAME, SV_GROUP_NAME],
     exec: async (teamspeak, msgAsList) => {
       try {
         msgAsList.shift();
@@ -239,7 +240,7 @@ export const COMMANDS_MAP = {
     howToUse: '!removeNeutral ${enemyName}',
   },
   '!addMakersEnemy': {
-    groups: [ADMIN_GROUP_NAME],
+    groups: [ADMIN_GROUP_NAME, SV_GROUP_NAME],
     exec: async (teamspeak, msgAsList) => {
       try {
         msgAsList.shift();
@@ -257,7 +258,7 @@ export const COMMANDS_MAP = {
     howToUse: '!addMakersEnemy ${enemyName}',
   },
   '!removeMakersEnemy': {
-    groups: [ADMIN_GROUP_NAME],
+    groups: [ADMIN_GROUP_NAME, SV_GROUP_NAME],
     exec: async (teamspeak, msgAsList) => {
       try {
         msgAsList.shift();
@@ -275,7 +276,7 @@ export const COMMANDS_MAP = {
     howToUse: '!removeMakersEnemy ${enemyName}',
   },
   '!addMakersFriend': {
-    groups: [ADMIN_GROUP_NAME],
+    groups: [ADMIN_GROUP_NAME, SV_GROUP_NAME],
     exec: async (teamspeak, msgAsList) => {
       try {
         msgAsList.shift();
@@ -293,7 +294,7 @@ export const COMMANDS_MAP = {
     howToUse: '!addMakersFriend ${enemyName}',
   },
   '!removeMakersFriend': {
-    groups: [ADMIN_GROUP_NAME],
+    groups: [ADMIN_GROUP_NAME, SV_GROUP_NAME],
     exec: async (teamspeak, msgAsList) => {
       try {
         msgAsList.shift();
@@ -311,7 +312,7 @@ export const COMMANDS_MAP = {
     howToUse: '!removeMakersFriend ${enemyName}',
   },
   '!addPossibleEnemys': {
-    groups: [ADMIN_GROUP_NAME],
+    groups: [ADMIN_GROUP_NAME, SV_GROUP_NAME],
     exec: async (teamspeak, msgAsList) => {
       try {
         msgAsList.shift();
@@ -329,7 +330,7 @@ export const COMMANDS_MAP = {
     howToUse: '!addPossibleEnemys ${enemyName}',
   },
   '!removePossibleEnemys': {
-    groups: [ADMIN_GROUP_NAME],
+    groups: [ADMIN_GROUP_NAME, SV_GROUP_NAME],
     exec: async (teamspeak, msgAsList) => {
       try {
         msgAsList.shift();
@@ -347,7 +348,7 @@ export const COMMANDS_MAP = {
     howToUse: '!removePossibleEnemys ${enemyName}',
   },
   '!addNewAdmin': {
-    groups: [ADMIN_GROUP_NAME],
+    groups: [ADMIN_GROUP_NAME, SV_GROUP_NAME],
     exec: async (teamspeak, msgAsList) => {
       try {
         msgAsList.shift();
@@ -365,7 +366,7 @@ export const COMMANDS_MAP = {
     howToUse: '!addNewAdmin ${username}',
   },
   '!removeAdmin': {
-    groups: [ADMIN_GROUP_NAME],
+    groups: [ADMIN_GROUP_NAME, SV_GROUP_NAME],
     exec: async (teamspeak, msgAsList) => {
       try {
         msgAsList.shift();
@@ -383,7 +384,7 @@ export const COMMANDS_MAP = {
     howToUse: '!removeModerator ${username}',
   },
   '!addNewModerator': {
-    groups: [ADMIN_GROUP_NAME],
+    groups: [ADMIN_GROUP_NAME, SV_GROUP_NAME],
     exec: async (teamspeak, msgAsList) => {
       try {
         msgAsList.shift();
@@ -401,7 +402,7 @@ export const COMMANDS_MAP = {
     howToUse: '!addNewModerator ${username}',
   },
   '!removeModerator': {
-    groups: [ADMIN_GROUP_NAME],
+    groups: [ADMIN_GROUP_NAME, SV_GROUP_NAME],
     exec: async (teamspeak, msgAsList) => {
       try {
         msgAsList.shift();
