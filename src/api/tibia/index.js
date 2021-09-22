@@ -6,7 +6,7 @@ export default class TibiaAPI {
   constructor(worldName) {
     this.worldName = worldName;
   }
-  
+
   async getCharacterInformation(characterName) {
     const {
       data: {
@@ -18,16 +18,16 @@ export default class TibiaAPI {
       }
     } = await axios.get(`${TIBIA_DATA_API_URL}characters/${encodeURIComponent(characterName)}.json`);
     console.log('TIBIA_DATA_API_URL')
-    const world = await axios.get(`${TIBIA_DATA_API_URL}world/lobera.json`);
-    console.log('onlines ==> ',world)
-    const isOnline = world.players_online.find((online)=>{
-     return online.name == characterName;
+    const { data } = await axios.get(`${TIBIA_DATA_API_URL}world/lobera.json`);
+    console.log('onlines ==> ', data.world.players_online.lenght)
+    const isOnline = world.players_online.find((online) => {
+      return online.name == characterName;
     })
-    console.log('isOnline',isOnline)
+    console.log('isOnline', isOnline)
     return {
-      info: { 
+      info: {
         ...characterData,
-        status: isOnline? 'online': 'offline'
+        status: isOnline ? 'online' : 'offline'
       },
       kills,
       characters,
@@ -35,12 +35,12 @@ export default class TibiaAPI {
   }
 
   async getWorld(characterName) {
-   let onlines = await axios.get(`${TIBIA_DATA_API_URL}world/lobera.json`);
-   const isOnline = onlines.find((online)=>{
-    return online.name == characterName;
-   })
-   console.log('getWork',isOnline)
-    return isOnline? 'online': 'offline'; 
+    let onlines = await axios.get(`${TIBIA_DATA_API_URL}world/lobera.json`);
+    const isOnline = onlines.find((online) => {
+      return online.name == characterName;
+    })
+    console.log('getWork', isOnline)
+    return isOnline ? 'online' : 'offline';
   }
 
   async getGuildInformation(guildUrl) {
