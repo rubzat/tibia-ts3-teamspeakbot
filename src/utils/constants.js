@@ -2,10 +2,10 @@ import { promoteUser } from '../scripts/server-groups';
 import { massKick, massMove, sendMassPoke } from '../scripts/client';
 import { insertCharacter, removeCharacter, addCharactersByGuildName } from '../api/models/characters';
 
-export const ADMIN_GROUP_NAME = 'Bot Admin';
-export const MODERATOR_GROUP_NAME = 'Bot Moderator';
+export const ADMIN_GROUP_NAME = 'TSBot Admin';
+export const MODERATOR_GROUP_NAME = 'TSBot Moderator';
 
-export const BOT_NAME = 'FreeBot';
+export const BOT_NAME = 'TSFreeBot';
 
 export const VOCATIONS_ICONS = {
   'http://forums.xenobot.net/images/icons/icon4.png': 'None',
@@ -16,12 +16,6 @@ export const VOCATIONS_ICONS = {
 };
 
 export const INITIAL_CHANNELS = [{
-  type: 'spacer',
-  name: '[*cspacer]▂',
-}, {
-  type: 'spacer',
-  name: '[cspacer]* * * Tibia TS BOT * * *',
-}, {
   type: 'spacer',
   name: '[*cspacer]▂▂',
 }, {

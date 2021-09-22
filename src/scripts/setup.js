@@ -23,8 +23,14 @@ const setup = async () => {
   const teamspeak = await initServer();
 
   await setupDB(spinner);
+  spinner.succeed('Server running!, setupDB');
+
   await createChannels(spinner);
+  spinner.succeed('Server running!, createChannels');
+
   await createServerGroups(spinner, teamspeak);
+  spinner.succeed('Server running!, createServerGroups');
+
 
   spinner.succeed('Done!');
   setTimeout(() => process.exit(), 500);
