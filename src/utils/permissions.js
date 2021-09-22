@@ -17,9 +17,9 @@ export const canDo = async (command, dbUserGroups = []) => {
     }
   });
 
-  if (!canExecuteCommandFromServerGroup) {
-    return { ok: false, message: 'You don"t have permissions' };
-  }
+  // if (!canExecuteCommandFromServerGroup) {
+  //   return { ok: false, message: 'You don"t have permissions' };
+  // }
 
   return {
     ok: true,

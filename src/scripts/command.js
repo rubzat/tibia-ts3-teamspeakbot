@@ -41,7 +41,7 @@ export const proceesCommand = async (event = {}, teamspeak) => {
     const { ok, message } = await canDo(command, dbUserGroups);
     
     const isServerAdmin = await isUserServerAdmin(teamspeak, client_servergroups);
-
+    console.log('isServerAdmin=>',isServerAdmin)
     const continueWithAddingAdmins = (command === '!addNewAdmin' || command === '!addNewModerator') && isServerAdmin;
     
     if (!continueWithAddingAdmins && !ok) {

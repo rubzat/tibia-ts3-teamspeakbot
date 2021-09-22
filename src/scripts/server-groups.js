@@ -9,11 +9,12 @@ export const isUserServerAdmin = async (teamspeak, clientServerGroups = []) => (
         new Promise(async (resolve, reject) => {
           try {
             const serverGroup = await teamspeak.getServerGroupByID(serverGroupId);
-            
+            console.log('serverGroup',serverGroup)
             if (!serverGroup) resolve('');
 
             const { propcache } = serverGroup;
             const { name } = propcache;
+            console.log('serverGroup name',name)
 
             resolve(name);
           } catch (error) {
