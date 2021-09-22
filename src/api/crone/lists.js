@@ -153,7 +153,6 @@ export const startTasks = (teamspeak) => {
     ].filter(({ characterName }) => characterName);
 
     const allCharactersInformation = await getInformationFromCharacters(allCharacters);
-    console.log('allCharactersInformation', allCharactersInformation)
     const deathListByCharacters = [];
     const playersOnline = [];
 
@@ -164,9 +163,7 @@ export const startTasks = (teamspeak) => {
         }
   
         if (data && data.info) {
-          if (data.info.status === 'online') {
             playersOnline.push(data.info);
-          }
         }
       });
     }
