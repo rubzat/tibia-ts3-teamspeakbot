@@ -1,7 +1,7 @@
 export const sendJoinMessage = async (event = {}) => (
   new Promise(async (resolve) => {
-    event.client.message('Welcome!');
-    event.client.message('Please show some love by giving some starts to the project github.com/ethkat/tibia-ts3-teamspeakbot');
+    event.client.message('Welcome! =)');
+    event.client.message('Config By Rubzat');
     resolve();
   })
 );

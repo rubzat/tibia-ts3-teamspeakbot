@@ -134,8 +134,8 @@ const getNotPokedKills = async (kills = []) => (
 const mapCharactersToNames = ({ type, characterName }) => ({ type, characterName });
 
 export const startTasks = (teamspeak) => {
-  const listTask = cron.schedule('0-59/5 * * * * *', async () => {
-    console.log('Init')
+  const listTask = cron.schedule('0-59/25 * * * * *', async () => {
+    console.log('StartJobs')
     const enemyCharacters = await Characters.find({ type: 'enemy' });
     const friendCharacters = await Characters.find({ type: 'friend' });
     const neutralCharacters = await Characters.find({ type: 'neutral' });
