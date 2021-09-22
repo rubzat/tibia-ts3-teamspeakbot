@@ -2,10 +2,10 @@ import { promoteUser } from '../scripts/server-groups';
 import { massKick, massMove, sendMassPoke } from '../scripts/client';
 import { insertCharacter, removeCharacter, addCharactersByGuildName } from '../api/models/characters';
 
-export const ADMIN_GROUP_NAME = 'TSBot Admin';
-export const MODERATOR_GROUP_NAME = 'TSBot Moderator';
+export const ADMIN_GROUP_NAME = 'TS1Bot Admin';
+export const MODERATOR_GROUP_NAME = 'TS1Bot Moderator';
 
-export const BOT_NAME = 'TSFreeBot';
+export const BOT_NAME = 'TS1FreeBot';
 
 export const VOCATIONS_ICONS = {
   'http://forums.xenobot.net/images/icons/icon4.png': 'None',
@@ -16,15 +16,9 @@ export const VOCATIONS_ICONS = {
 };
 
 export const INITIAL_CHANNELS = [{
-  type: 'spacer',
-  name: '[*cspacer]▂▂',
-}, {
   type: 'help',
   name: '[cspacer]Help channel',
   description: 'Send !help to see all the availables commands',
-}, {
-  type: 'spacer',
-  name: '[*cspacer]▂▂▂▂▂▂',
 },{
   type: 'enemy',
   name: '[cspacer]Enemys (0/0)',
@@ -43,9 +37,6 @@ export const INITIAL_CHANNELS = [{
 }, {
   type: 'possibleEnemys',
   name: '[cspacer]Possible Enemys (0/0)',
-}, {
-  type: 'spacer',
-  name: '[*cspacer]▂▂▂▂',
 }];
 
 export const VOCATIONS = [
