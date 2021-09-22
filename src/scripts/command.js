@@ -30,7 +30,7 @@ export const proceesCommand = async (event = {}, teamspeak) => {
     const msgAsList = msg.split(' ');
   
     const command = msgAsList[0];
-    console.log('client_servergroups')
+    console.log('client_servergroups=>',client_servergroups)
     const dbUserGroups = await ServerGroups.find({ sgid: { $in: client_servergroups } });
 
     if (command === '!help') {
