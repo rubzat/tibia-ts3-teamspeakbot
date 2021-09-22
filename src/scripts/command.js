@@ -30,7 +30,6 @@ export const proceesCommand = async (event = {}, teamspeak) => {
     const msgAsList = msg.split(' ');
   
     const command = msgAsList[0];
-    console.log('client_servergroups=>',client_servergroups)
     const dbUserGroups = await ServerGroups.find({ sgid: { $in: client_servergroups } });
 
     if (command === '!help') {
@@ -41,7 +40,6 @@ export const proceesCommand = async (event = {}, teamspeak) => {
     const { ok, message } = await canDo(command, dbUserGroups);
     
     const isServerAdmin = await isUserServerAdmin(teamspeak, client_servergroups);
-    console.log('isServerAdmin=>',isServerAdmin)
     const continueWithAddingAdmins = (command === '!addNewAdmin' || command === '!addNewModerator') && isServerAdmin;
     
     if (!continueWithAddingAdmins && !ok) {
