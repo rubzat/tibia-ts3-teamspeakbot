@@ -19,11 +19,16 @@ export default class TibiaAPI {
     } = await axios.get(`${TIBIA_DATA_API_URL}characters/${encodeURIComponent(characterName)}.json`);
     console.log('TIBIA_DATA_API_URL')
     const data = await axios.get(`${TIBIA_DATA_API_URL}world/lobera.json`);
-    const onlines = data.data.players_online;
-    console.log('onlines', onlines)
+    const onlines = data.data.world.players_online;
+    console.log('isOnline', onlines)
+    const isOnline = onlines.find((online) => {
+      return online.name == characterName;
+    })
+    console.log('isOnline', isOnline)
     return {
       info: {
         ...characterData,
+        status: isOnline ? 'online' : 'offline'
       },
       kills,
       characters,
